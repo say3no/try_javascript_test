@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "test": "jest"
+        "test": "jest --coverage"
     },
     "devDependencies": {
         "jest": "^23.6.0"

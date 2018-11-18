@@ -1,5 +1,7 @@
 # try_javascript_test
 
+ [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
+
 react, ts, graphqlと来てそろそろtestがないとツライなあという状況になっているので、一度jsのtestingの状況について調べたり、試したりしたい。でざっとJest, Jasmine, mocha くらいは知ってるけどなにがどうというのは全く把握していないので、ひとまずこれらをざっと調べようかな
 
 ## Jest
