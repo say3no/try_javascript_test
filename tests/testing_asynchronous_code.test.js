@@ -1,53 +1,79 @@
-// ## Callbacks
+ function returnPromise(bool = true) {
+     return new Promise((resolve, reject) => {
+         if (bool === true) {
+             resolve('peanut butter');
+         } else if (bool === false) {
+             reject('error');
+         }
+     })
+ }
 
-function fetchData() {
-    return 'peanut butter';
-}
+ async function asyncFunc(bool = true) {
+     if (bool === true) {
+         return 'peanut butter';
+     } else if (bool === false) {
+         throw 'error';
+     }
+ }
 
-test('the data is peanut butter', done => {
-    function callback(data) {
-        expect(data).toBe('peanut butter');
-        done();
-    }
+ /*
+ // testのcallback関数の引数をdoneにすると、done callbackが呼ばれるまで待つ。
+ test('the data is peanut butter', done => {
+     function callback(data) {
+         console.log("aaaaaaaaaa");
+         expect(data).toBe('peanut butter');
+         done(); // こいつが呼ばれるのを待つ
+     }
+     fetchData(callback);
+ });
+ */
 
-    fetchData(callback);
-});
+ // ## Promise
+ test('the data is peanut butter', () => {
+     expect.assertions(1);
+     return asyncFunc().then(data => {
+         expect(data).toBe('peanut butter');
+     });
+ });
 
-// ## Promise
-test('the data is peanut butter', () => {
-    expect.assertions(1);
-    return fetchData().then(data => {
-        expect(data).toBe('peanut butter');
-    });
-});
+ test('the fetch fails with an error', () => {
+     expect.assertions(1);
+     return asyncFunc(false).catch(e => expect(e).toMatch('error'));
+ });
 
-test('the fetch fails with an error', () => {
-    expect.assertions(1);
-    return fetchData().catch(e => expect(e).toMatch('error'));
-});
+ // ## .resolves / .rejects
+ test('the data is peanut butter', () => {
+     expect.assertions(1);
+     return expect(returnPromise()).resolves.toBe('peanut butter');
+ });
 
-// ## Async/Await
-test('the data is peanut butter', async() => {
-    expect.assertions(1);
-    const data = await fetchData();
-    expect(data).toBe('peanut butter');
-});
+ test('the fetch fails with an error', () => {
+     expect.assertions(1);
+     return expect(returnPromise(false)).rejects.toMatch('error');
+ });
 
-test('the fetch fails with an error', async() => {
-    expect.assertions(1);
-    try {
-        await fetchData();
-    } catch (e) {
-        expect(e).toMatch('error');
-    }
-});
+ // ## Async/Await
+ test('the data is peanut butter', async() => {
+     expect.assertions(1);
+     const data = await asyncFunc();
+     expect(data).toBe('peanut butter');
+ });
 
-test('the data is peanut butter', async() => {
-    expect.assertions(1);
-    await expect(fetchData()).resolves.toBe('peanut butter');
-});
+ test('the fetch fails with an error', async() => {
+     expect.assertions(1);
+     try {
+         await asyncFunc(false);
+     } catch (e) {
+         expect(e).toMatch('error');
+     }
+ });
 
-test('the fetch fails with an error', async() => {
-    expect.assertions(1);
-    await expect(fetchData()).rejects.toMatch('error');
-});
+ test('the data is peanut butter', async() => {
+     expect.assertions(1);
+     await expect(asyncFunc()).resolves.toBe('peanut butter');
+ });
+
+ test('the fetch fails with an error', async() => {
+     expect.assertions(1);
+     await expect(asyncFunc(false)).rejects.toMatch('error');
+ });
