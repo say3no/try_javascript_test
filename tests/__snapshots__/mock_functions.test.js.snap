@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mock function test 1`] = `
+[MockFunction saegusa key] {
+  "calls": Array [
+    Array [],
+    Array [],
+    Array [],
+    Array [],
+    Array [],
+    Array [],
+  ],
+  "results": Array [
+    Object {
+      "isThrow": false,
+      "value": "temporaly function",
+    },
+    Object {
+      "isThrow": false,
+      "value": "default",
+    },
+    Object {
+      "isThrow": false,
+      "value": "default",
+    },
+    Object {
+      "isThrow": false,
+      "value": "default",
+    },
+    Object {
+      "isThrow": false,
+      "value": "default",
+    },
+    Object {
+      "isThrow": false,
+      "value": "default",
+    },
+  ],
+}
+`;

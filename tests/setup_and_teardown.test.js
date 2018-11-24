@@ -1,6 +1,8 @@
 // 環境のsetup(建築)とteadwon(ぶっこわし)
-
-
+test('hogehoge', () => {
+    expect(0).toBe(0);
+});
+/** 
 // beforeAllでは、dbのcreateやtableのinsertみたいな、テストの前編通して一度しか実行しないような処理を定義するとベネ
 // afterAllはもう分かるよね
 beforeAll(() => {
@@ -34,9 +36,8 @@ describe(' matching cities to foods', () => {
 });
 
 // Order of execution of describe and test blocks
-/*
- ** Jestは 実際に test が走る前に、すべての describe のハンドラが走る。 ** 
- */
+// Jestは 実際に test が走る前に、すべての describe のハンドラが走る。 
+
 
 describe('outer', () => {
     console.log('describe outer-a');
@@ -83,3 +84,5 @@ test.only('this test wil be the only test that runs', () => {
 test('this test will not run ', () => {
     excpect(true).toBe(true);
 });
+
+*/
