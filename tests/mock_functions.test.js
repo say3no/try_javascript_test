@@ -1,7 +1,6 @@
 // # Mock Functions
 // 2つの　mock の用意の仕方がある。
 
-
 // forrach関数をテストするっていうケースを想像してみよう。こいつはiterableを引数にとって、ひとつずつ返すっていう関数だ。
 function foreach(items, callback) {
     for (let index = 0; index < items.length; index++) {

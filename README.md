@@ -1,17 +1,18 @@
 # try_javascript_test
-
  [![jest](https://jestjs.io/img/jest-badge.svg)](https://github.com/facebook/jest)
 
-react, ts, graphqlと来てそろそろtestがないとツライなあという状況になっているので、一度jsのtestingの状況について調べたり、試したりしたい。でざっとJest, Jasmine, mocha くらいは知ってるけどなにがどうというのは全く把握していないので、ひとまずこれらをざっと調べようかな
+jsのtest関連を試す練習帳。いまんところjestだけ。
 
-## Jest
-
-[Jest](https://jestjs.io/ja/)はfacebookが開発しているOSSのjsのtest framewok?
-
+##  try [Jest](https://jestjs.io/ja/)は
+facebookが開発しているOSSのjsのtest framewok.
  - reactと相性がいい
  - 高速かつサンドボックス化された環境
  - コードカバレッジレポート機能を内蔵
- - typescriptと連携
+ - TypeScriptで動く
+ - mockがすごく強力
 
- もうこいつでよくないか？
+ すごくべんり。
 
+###  他の独立した機能とか
+
+このへんは味付けみたいなものなんで飛ばす。詳しくは [Jest Platform · Jest](https://jestjs.io/docs/ja/jest-platform) をよめばいい
