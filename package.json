@@ -3,6 +3,11 @@
         "test": "jest --coverage"
     },
     "devDependencies": {
-        "jest": "^23.6.0"
+        "jest": "^23.6.0",
+        "jest-runner-eslint": "^0.7.1"
+    },
+    "jest": {
+        "runner": "jest-runner-eslint",
+        "displayName": "ESLint"
     }
 }

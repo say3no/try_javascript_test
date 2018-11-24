@@ -1,5 +1,11 @@
+import {
+    test,
+    expect,
+    jest
+} from 'jest';
+
 // # Mock Functions
-// 2つの　mock の用意の仕方がある。
+// 2つのmockの用意の仕方がある。
 
 // forrach関数をテストするっていうケースを想像してみよう。こいつはiterableを引数にとって、ひとつずつ返すっていう関数だ。
 function foreach(items, callback) {
@@ -8,7 +14,7 @@ function foreach(items, callback) {
     }
 }
 
-// この関数をテストするために、　mock 関数を用意して、期待通りのcallbackの実行が保証されたmockの状態を見てみよう。
+// この関数をテストするために、mock 関数を用意して、期待通りのcallbackの実行が保証されたmockの状態を見てみよう。
 const mockCallback = jest.fn(x => 42 + x);
 foreach([0, 1], mockCallback);
 
@@ -27,15 +33,15 @@ test('mock forensic', () => {
 });
 
 const myMock = jest.fn();
-console.log(myMock()); // undefned
+console.debug(myMock()); // undefned
 
-myMock.mockReturnValueOnce(10).mockReturnValue("hoge");
-console.log(myMock());
-console.log(myMock());
-console.log(myMock());
-console.log(myMock());
-console.log(myMock());
-console.log(myMock());
+myMock.mockReturnValueOnce(10).mockReturnValue('hoge');
+console.debug(myMock());
+console.debug(myMock());
+console.debug(myMock());
+console.debug(myMock());
+console.debug(myMock());
+console.debug(myMock());
 
 // ## モジュールのモック
 // あとでやる
@@ -47,38 +53,38 @@ const filterTestFn = jest.fn();
 filterTestFn.mockReturnValueOnce(true).mockImplementationOnce(false);
 
 const result = [11, 12].filter(filterTestFn);
-console.log(result); // 11
-console.log(filterTestFn.mock.calls);
+console.debug(result); // 11
+console.debug(filterTestFn.mock.calls);
 
 
 const myMockFn1 = jest.fn().mockImplementation(() => {
-    return "aaaa";
-})
+    return 'aaaa';
+});
 
 
 const myMockFn2 = jest.fn().mockImplementationOnce(() => {
-    return "bbbbbb";
+    return 'bbbbbb';
 }).mockImplementationOnce(() => {
-    return "ccccccc";
-})
+    return 'ccccccc';
+});
 
-console.log(myMockFn1());
-console.log(myMockFn1());
-console.log(myMockFn2());
-console.log(myMockFn2());
-console.log(myMockFn2()); // undefined
+console.debug(myMockFn1());
+console.debug(myMockFn1());
+console.debug(myMockFn2());
+console.debug(myMockFn2());
+console.debug(myMockFn2()); // undefined
 
 
 const myMockFn3 = jest.fn(() => {
-    return "default";
+    return 'default';
 }).mockImplementationOnce(() => {
-    return "temporaly function"
+    return 'temporaly function';
 });
 
-console.log(myMockFn3());
-console.log(myMockFn3());
-console.log(myMockFn3());
-console.log(myMockFn3());
+console.debug(myMockFn3());
+console.debug(myMockFn3());
+console.debug(myMockFn3());
+console.debug(myMockFn3());
 
 // >よくチェーンされる(そしてのために常に thisを返す必要のある)メソッドがあるケースのために
 // >この実装を単純化する糖衣APIを.mockReturnThis() の形で全てのモックが備えています。
@@ -87,7 +93,6 @@ console.log(myMockFn3());
 const myObj = {
     myMethod: jest.fn().mockReturnThis(),
 };
-
 // したのと一緒
 
 const otherObj = {
@@ -96,12 +101,14 @@ const otherObj = {
     }),
 };
 
+console.log(myObj);
+console.log(otherObj);
 
 // mock名
 
-console.log(myMockFn3());
-myMockFn3.mockName('saegusa key')
-console.log(myMockFn3());
+console.debug(myMockFn3());
+myMockFn3.mockName('saegusa key');
+console.debug(myMockFn3());
 
 
 

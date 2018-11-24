@@ -1,3 +1,9 @@
+import {
+    test,
+    expect
+} from 'jest';
+
+
 // toBe は Obejt.is(a,b) に等しい。あくまでプリミティブな比較
 test('two plus two is four', () => {
     expect(2 + 2).toBe(4);
@@ -81,7 +87,7 @@ test('the shopping list has beer on it', () => {
 
 // ## Exceptions
 function compileAndroidCode() {
-    throw new Error('you are using the wrong JDK') //TutorialのConfigError型がデフォでないのでErrorで代用
+    throw new Error('you are using the wrong JDK'); //TutorialのConfigError型がデフォでないのでErrorで代用
 }
 
 test('compiling android goes as expected', () => {
