@@ -1,9 +1,3 @@
-import {
-    test,
-    expect,
-    jest
-} from 'jest';
-
 // # Mock Functions
 // 2つのmockの用意の仕方がある。
 
@@ -33,15 +27,16 @@ test('mock forensic', () => {
 });
 
 const myMock = jest.fn();
-console.debug(myMock()); // undefned
+console.log(myMock()); // undefned
+console.log(myMock()); // undefned
 
 myMock.mockReturnValueOnce(10).mockReturnValue('hoge');
-console.debug(myMock());
-console.debug(myMock());
-console.debug(myMock());
-console.debug(myMock());
-console.debug(myMock());
-console.debug(myMock());
+console.log(myMock());
+console.log(myMock());
+console.log(myMock());
+console.log(myMock());
+console.log(myMock());
+console.log(myMock());
 
 // ## モジュールのモック
 // あとでやる
@@ -53,8 +48,8 @@ const filterTestFn = jest.fn();
 filterTestFn.mockReturnValueOnce(true).mockImplementationOnce(false);
 
 const result = [11, 12].filter(filterTestFn);
-console.debug(result); // 11
-console.debug(filterTestFn.mock.calls);
+console.log(result); // 11
+console.log(filterTestFn.mock.calls);
 
 
 const myMockFn1 = jest.fn().mockImplementation(() => {
@@ -68,11 +63,11 @@ const myMockFn2 = jest.fn().mockImplementationOnce(() => {
     return 'ccccccc';
 });
 
-console.debug(myMockFn1());
-console.debug(myMockFn1());
-console.debug(myMockFn2());
-console.debug(myMockFn2());
-console.debug(myMockFn2()); // undefined
+console.log(myMockFn1());
+console.log(myMockFn1());
+console.log(myMockFn2());
+console.log(myMockFn2());
+console.log(myMockFn2()); // undefined
 
 
 const myMockFn3 = jest.fn(() => {
@@ -81,10 +76,10 @@ const myMockFn3 = jest.fn(() => {
     return 'temporaly function';
 });
 
-console.debug(myMockFn3());
-console.debug(myMockFn3());
-console.debug(myMockFn3());
-console.debug(myMockFn3());
+console.log(myMockFn3());
+console.log(myMockFn3());
+console.log(myMockFn3());
+console.log(myMockFn3());
 
 // >よくチェーンされる(そしてのために常に thisを返す必要のある)メソッドがあるケースのために
 // >この実装を単純化する糖衣APIを.mockReturnThis() の形で全てのモックが備えています。
@@ -106,9 +101,9 @@ console.log(otherObj);
 
 // mock名
 
-console.debug(myMockFn3());
+console.log(myMockFn3());
 myMockFn3.mockName('saegusa key');
-console.debug(myMockFn3());
+console.log(myMockFn3());
 
 
 

@@ -1,8 +1,3 @@
-import {
-    test,
-    expect
-} from 'jest';
-
 // 環境のsetup(建築)とteadwon(ぶっこわし)
 test('hogehoge', () => {
     expect(0).toBe(0);

@@ -1,9 +1,3 @@
-import {
-    test,
-    expect
-} from 'jest';
-
-
 // toBe は Obejt.is(a,b) に等しい。あくまでプリミティブな比較
 test('two plus two is four', () => {
     expect(2 + 2).toBe(4);

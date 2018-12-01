@@ -1,9 +1,3 @@
-import {
-    test,
-    expect
-} from 'jest';
-
-
 function returnPromise(bool = true) {
     return new Promise((resolve, reject) => {
         if (bool === true) {
